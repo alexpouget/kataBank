@@ -13,6 +13,6 @@ public class Account {
     }
 
     public BankStatement printStatement() {
-        return null;
+        return new BankStatement("date || credit || debit || balance");
     }
 }
