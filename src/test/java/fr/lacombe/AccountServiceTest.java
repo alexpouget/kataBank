@@ -1,10 +1,13 @@
 package fr.lacombe;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalDate;
+
+import static org.assertj.core.api.Assertions.*;
 
 public class AccountServiceTest {
 
@@ -41,4 +44,11 @@ public class AccountServiceTest {
 
         Mockito.verify(account).addTransaction(debit);
     }
+
+    @Test
+    public void printEmptyStatement() {
+        BankStatement expectedBankStatement = new BankStatement("date || credit || debit || balance");
+        assertThat(accountService.printStatement()).isEqualTo(expectedBankStatement);
+    }
+
 }

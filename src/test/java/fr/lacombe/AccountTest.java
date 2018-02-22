@@ -8,12 +8,6 @@ import java.time.Month;
 
 public class AccountTest {
 
-    /*@Test
-    public void printEmptyStatement() {
-        AccountService bank = new AccountService();
-        BankStatement expectedBankStatement = new BankStatement("date || credit || debit || balance");
-        Assertions.assertThat(bank.printStatement()).isEqualTo(expectedBankStatement);
-    }*/
 
     /*@Test
     public void printStatementWithOneDepositOf1000() {
