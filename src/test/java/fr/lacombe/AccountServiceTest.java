@@ -12,10 +12,12 @@ public class AccountServiceTest {
         Account account = new Account();
         account = Mockito.spy(account);
         AccountService accountService = new AccountService(account);
-        Transaction transaction = new Transaction(new Amount(1000), LocalDate.of(2012,01,10));
+        Amount amount = new Amount(1000);
+        LocalDate of = LocalDate.of(2012, 01, 10);
+        Transaction transaction = new Transaction(amount, of);
         Mockito.doNothing().when(account).addTransaction(transaction);
 
-        accountService.deposit(new Amount(1000), LocalDate.of(2012,01,10));
+        accountService.deposit(amount, of);
 
         Mockito.verify(account).addTransaction(transaction);
     }

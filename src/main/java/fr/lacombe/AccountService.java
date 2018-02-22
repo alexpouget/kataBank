@@ -12,7 +12,8 @@ public class AccountService {
     }
 
     public void deposit(Amount amount, LocalDate date) {
-        account.addTransaction(new Transaction(amount,date));
+        Transaction transaction = new Transaction(amount, date);
+        account.addTransaction(transaction);
     }
 
     public void withdrawal(Amount amount, LocalDate date) {
