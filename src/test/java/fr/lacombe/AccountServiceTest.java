@@ -21,4 +21,19 @@ public class AccountServiceTest {
 
         Mockito.verify(account).addTransaction(transaction);
     }
+
+    @Test
+    public void shouldWithDrawalMoney() {
+        Account account = new Account();
+        account = Mockito.spy(account);
+        AccountService accountService = new AccountService(account);
+        Amount amount = new Amount(1000);
+        LocalDate date = LocalDate.of(2012, 01, 10);
+        Transaction debit = new Debit(amount, date);
+        Mockito.doNothing().when(account).addTransaction(debit);
+
+        accountService.withdrawal(amount, date);
+
+        Mockito.verify(account).addTransaction(debit);
+    }
 }

@@ -17,6 +17,7 @@ public class AccountService {
     }
 
     public void withdrawal(Amount amount, LocalDate date) {
+        account.addTransaction(new Debit(amount,date));
 
     }
 
