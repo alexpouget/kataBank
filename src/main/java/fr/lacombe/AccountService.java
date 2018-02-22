@@ -23,6 +23,7 @@ public class AccountService {
     }
 
     public BankStatement printStatement() {
-        return new BankStatement("date || credit || debit || balance");
+        BankStatement statement = account.printTransactions();
+        return statement;
     }
 }

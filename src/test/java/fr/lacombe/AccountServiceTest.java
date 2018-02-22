@@ -51,4 +51,10 @@ public class AccountServiceTest {
         assertThat(accountService.printStatement()).isEqualTo(expectedBankStatement);
     }
 
+    @Test
+    public void printStatementCallAccountPrintTransactions() {
+        accountService.printStatement();
+        Mockito.verify(account).printTransactions();
+    }
+
 }
