@@ -3,7 +3,8 @@ package fr.lacombe;
 import java.util.Objects;
 
 public class Amount {
-    private final int amount;
+
+    private int amount;
 
     public Amount(int amount) {
         this.amount = amount;
@@ -21,5 +22,18 @@ public class Amount {
     public int hashCode() {
 
         return Objects.hash(amount);
+    }
+
+    public void add(Amount amount) {
+        this.amount += amount.amount;
+    }
+
+    public void substract(Amount amount) {
+        this.amount -= amount.amount;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(amount+".00");
     }
 }

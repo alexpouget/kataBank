@@ -46,12 +46,6 @@ public class AccountServiceTest {
     }
 
     @Test
-    public void printEmptyStatement() {
-        BankStatement expectedBankStatement = new BankStatement("date || credit || debit || balance");
-        assertThat(accountService.printStatement()).isEqualTo(expectedBankStatement);
-    }
-
-    @Test
     public void printStatementCallAccountPrintTransactions() {
         accountService.printStatement();
         Mockito.verify(account).printTransactions();

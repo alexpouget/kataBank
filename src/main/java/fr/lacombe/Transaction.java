@@ -3,10 +3,10 @@ package fr.lacombe;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Transaction {
+public abstract class Transaction {
 
-    private final Amount amount;
-    private final LocalDate date;
+    protected final Amount amount;
+    protected final LocalDate date;
 
     public Transaction(Amount amount, LocalDate date) {
         this.amount = amount;
@@ -27,4 +27,9 @@ public class Transaction {
 
         return Objects.hash(amount, date);
     }
+
+    public abstract Amount updateSolde(Amount solde);
+
+    @Override
+    public abstract String toString();
 }
