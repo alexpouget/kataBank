@@ -1,5 +1,6 @@
 package fr.lacombe;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -7,26 +8,30 @@ import java.time.LocalDate;
 
 public class AccountServiceTest {
 
+    private Account account;
+    private AccountService accountService;
+
+    @Before
+    public void setUp() throws Exception {
+        account = new Account();
+        account = Mockito.spy(account);
+        accountService = new AccountService(account);
+    }
+
     @Test
     public void shouldDepositMoney() {
-        Account account = new Account();
-        account = Mockito.spy(account);
-        AccountService accountService = new AccountService(account);
         Amount amount = new Amount(1000);
-        LocalDate of = LocalDate.of(2012, 01, 10);
-        Transaction transaction = new Transaction(amount, of);
-        Mockito.doNothing().when(account).addTransaction(transaction);
+        LocalDate date = LocalDate.of(2012, 01, 10);
+        Transaction credit = new Credit(amount, date);
+        Mockito.doNothing().when(account).addTransaction(credit);
 
-        accountService.deposit(amount, of);
+        accountService.deposit(amount, date);
 
-        Mockito.verify(account).addTransaction(transaction);
+        Mockito.verify(account).addTransaction(credit);
     }
 
     @Test
     public void shouldWithDrawalMoney() {
-        Account account = new Account();
-        account = Mockito.spy(account);
-        AccountService accountService = new AccountService(account);
         Amount amount = new Amount(1000);
         LocalDate date = LocalDate.of(2012, 01, 10);
         Transaction debit = new Debit(amount, date);

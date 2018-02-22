@@ -12,12 +12,13 @@ public class AccountService {
     }
 
     public void deposit(Amount amount, LocalDate date) {
-        Transaction transaction = new Transaction(amount, date);
-        account.addTransaction(transaction);
+        Transaction credit = new Credit(amount, date);
+        account.addTransaction(credit);
     }
 
     public void withdrawal(Amount amount, LocalDate date) {
-        account.addTransaction(new Debit(amount,date));
+        Transaction debit = new Debit(amount, date);
+        account.addTransaction(debit);
 
     }
 
