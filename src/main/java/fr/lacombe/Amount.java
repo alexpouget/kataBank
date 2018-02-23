@@ -36,12 +36,16 @@ public class Amount {
     public void add(Amount amount) {
         this.fractionalPart += amount.fractionalPart;
         this.wholePart += amount.wholePart + fractionalPart /100;
-        this.fractionalPart += amount.fractionalPart %100;
+        this.fractionalPart = amount.fractionalPart %100;
     }
 
-    public void substract(Amount amount) {
-        this.wholePart -= amount.wholePart;
-        this.fractionalPart -= amount.fractionalPart;
+    public void subtract(Amount amount) {
+        Integer newAmount = wholePart *100 + fractionalPart;
+        Integer amountToSubtract = amount.wholePart*100 + amount.fractionalPart;
+        
+        newAmount -= amountToSubtract;
+        wholePart = newAmount/100;
+        fractionalPart = newAmount%100;
     }
 
     @Override

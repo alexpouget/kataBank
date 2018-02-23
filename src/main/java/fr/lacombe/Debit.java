@@ -10,7 +10,7 @@ public class Debit extends Transaction {
 
     @Override
     public Amount updateSolde(Amount solde) {
-        solde.substract(this.amount);
+        solde.subtract(this.amount);
         return solde;
     }
 
