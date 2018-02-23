@@ -18,7 +18,7 @@ public class Feature {
         bankStatementExpected.append("2012-01-14 || || 500.00 || 2500.00\n" +
                 "2012-01-13 || 2000.00 || || 3000.00\n" +
                 "2012-01-10 || 1000.00 || || 1000.00");
-        Assertions.assertThat(bank.printStatement()).isEqualTo(bankStatementExpected);
+        Assertions.assertThat(bank.printStatement().toString()).isEqualTo(bankStatementExpected.toString());
     }
 
 }

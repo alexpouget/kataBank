@@ -1,11 +1,11 @@
 package fr.lacombe;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 public class Account {
 
-    private final Collection<Transaction> transactionList;
+    private final List<Transaction> transactionList;
 
     public Account() {
         transactionList = new ArrayList<>();
@@ -20,7 +20,7 @@ public class Account {
         Amount recalculateSolde = new Amount(0);
         for (Transaction transaction: transactionList) {
             recalculateSolde = transaction.updateSolde(recalculateSolde);
-            bankStatement.append(transaction.toString()+" "+recalculateSolde);
+            bankStatement.append(transaction.toString() + " " + recalculateSolde);
         }
         return bankStatement;
     }

@@ -1,13 +1,15 @@
 package fr.lacombe;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class BankStatement {
 
-    private final StringBuilder statement;
+    private final List<String> statement;
 
     public BankStatement() {
-        statement = new StringBuilder("date || credit || debit || balance");
+        statement = new ArrayList<>();
     }
 
     //use String not StringBuilder
@@ -26,11 +28,16 @@ public class BankStatement {
     }
 
     public void append(String transactionLine) {
-        statement.append("\n"+transactionLine);
+        statement.add(transactionLine);
     }
 
     @Override
     public String toString() {
-        return statement.toString();
+        StringBuilder stringBuilder = new StringBuilder("date || credit || debit || balance");
+        for (int i = statement.size() -1; i>=0;i--) {
+            stringBuilder.append("\n");
+            stringBuilder.append(statement.get(i));
+        }
+        return stringBuilder.toString();
     }
 }
