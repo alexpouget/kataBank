@@ -1,5 +1,9 @@
 package fr.lacombe;
 
+import fr.lacombe.amount.Amount;
+import fr.lacombe.transaction.Credit;
+import fr.lacombe.transaction.Debit;
+import fr.lacombe.transaction.Transaction;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

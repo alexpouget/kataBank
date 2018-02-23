@@ -1,5 +1,11 @@
 package fr.lacombe;
 
+import fr.lacombe.amount.Amount;
+import fr.lacombe.reporting.BankStatement;
+import fr.lacombe.transaction.Credit;
+import fr.lacombe.transaction.Debit;
+import fr.lacombe.transaction.Transaction;
+
 import java.time.LocalDate;
 
 public class AccountService {
@@ -7,7 +13,6 @@ public class AccountService {
     private final Account account;
 
     public AccountService(Account account) {
-
         this.account = account;
     }
 

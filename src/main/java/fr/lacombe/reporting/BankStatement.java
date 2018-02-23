@@ -1,4 +1,4 @@
-package fr.lacombe;
+package fr.lacombe.reporting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class BankStatement {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder("date || credit || debit || balance");
-        for (int i = statement.size() -1; i>=0;i--) {
+        for (int i = statement.size() - 1; i >= 0; i--) {
             stringBuilder.append("\n");
             stringBuilder.append(statement.get(i));
         }

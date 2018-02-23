@@ -1,5 +1,7 @@
 package fr.lacombe;
 
+import fr.lacombe.amount.Amount;
+import fr.lacombe.reporting.BankStatement;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 

@@ -1,9 +1,11 @@
-package fr.lacombe;
+package fr.lacombe.transaction;
+
+import fr.lacombe.amount.Amount;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
-public abstract class Transaction{
+public abstract class Transaction {
 
     protected final Amount amount;
     protected final LocalDate date;

@@ -1,9 +1,8 @@
-package fr.lacombe;
+package fr.lacombe.reporting;
 
+import fr.lacombe.reporting.BankStatement;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class BankStatementTest {
 
@@ -11,6 +10,6 @@ public class BankStatementTest {
     public void appendBonjour() {
         BankStatement bankStatement = new BankStatement();
         bankStatement.append("bonjour");
-        Assertions.assertThat(bankStatement.toString()).isEqualTo("date || credit || debit || balance\n"+"bonjour");
+        Assertions.assertThat(bankStatement.toString()).isEqualTo("date || credit || debit || balance\n" + "bonjour");
     }
 }

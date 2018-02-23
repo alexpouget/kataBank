@@ -1,5 +1,6 @@
-package fr.lacombe;
+package fr.lacombe.amount;
 
+import fr.lacombe.amount.Amount;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 

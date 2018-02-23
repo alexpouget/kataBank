@@ -1,4 +1,6 @@
-package fr.lacombe;
+package fr.lacombe.transaction;
+
+import fr.lacombe.amount.Amount;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package fr.lacombe;
+package fr.lacombe.amount;
 
 import java.util.Objects;
 
@@ -14,7 +14,7 @@ public class Amount {
 
     public static Amount parse(double amount) {
         Integer wholePart = (int) amount;
-        Integer fractionalPart = (int) (amount * 100- wholePart * 100);
+        Integer fractionalPart = (int) (amount * 100 - wholePart * 100);
         return new Amount(wholePart, fractionalPart);
     }
 
@@ -29,28 +29,26 @@ public class Amount {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(wholePart, fractionalPart);
     }
 
     public void add(Amount amount) {
         this.fractionalPart += amount.fractionalPart;
-        this.wholePart += amount.wholePart + fractionalPart /100;
-        this.fractionalPart = amount.fractionalPart %100;
+        this.wholePart += amount.wholePart + fractionalPart / 100;
+        this.fractionalPart = amount.fractionalPart % 100;
     }
 
     public void subtract(Amount amount) {
-        Integer newAmount = wholePart *100 + fractionalPart;
-        Integer amountToSubtract = amount.wholePart*100 + amount.fractionalPart;
-        
+        Integer newAmount = wholePart * 100 + fractionalPart;
+        Integer amountToSubtract = amount.wholePart * 100 + amount.fractionalPart;
         newAmount -= amountToSubtract;
-        wholePart = newAmount/100;
-        fractionalPart = newAmount%100;
+        wholePart = newAmount / 100;
+        fractionalPart = newAmount % 100;
     }
 
     @Override
     public String toString() {
         String formattedFractionalPart = String.format("%02d", fractionalPart);
-        return String.valueOf(wholePart +"."+ formattedFractionalPart);
+        return String.valueOf(wholePart + "." + formattedFractionalPart);
     }
 }

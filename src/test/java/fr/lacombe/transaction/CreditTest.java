@@ -1,5 +1,7 @@
-package fr.lacombe;
+package fr.lacombe.transaction;
 
+import fr.lacombe.amount.Amount;
+import fr.lacombe.transaction.Credit;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
