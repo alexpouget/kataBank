@@ -12,7 +12,6 @@ public class BankStatement {
         statement = new ArrayList<>();
     }
 
-    //use String not StringBuilder
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

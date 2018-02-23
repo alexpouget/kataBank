@@ -17,7 +17,7 @@ public class Account {
 
     public BankStatement printTransactions() {
         BankStatement bankStatement = new BankStatement();
-        Amount recalculateSolde = new Amount(0);
+        Amount recalculateSolde = Amount.parse(0);
         for (Transaction transaction: transactionList) {
             recalculateSolde = transaction.updateSolde(recalculateSolde);
             bankStatement.append(transaction.toString() + " " + recalculateSolde);

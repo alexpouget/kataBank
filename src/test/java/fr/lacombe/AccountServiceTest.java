@@ -1,13 +1,10 @@
 package fr.lacombe;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalDate;
-
-import static org.assertj.core.api.Assertions.*;
 
 public class AccountServiceTest {
 
@@ -23,7 +20,7 @@ public class AccountServiceTest {
 
     @Test
     public void shouldDepositMoney() {
-        Amount amount = new Amount(1000);
+        Amount amount = Amount.parse(1000);
         LocalDate date = LocalDate.of(2012, 01, 10);
         Transaction credit = new Credit(amount, date);
         Mockito.doNothing().when(account).addTransaction(credit);
@@ -35,7 +32,7 @@ public class AccountServiceTest {
 
     @Test
     public void shouldWithDrawalMoney() {
-        Amount amount = new Amount(1000);
+        Amount amount = Amount.parse(1000);
         LocalDate date = LocalDate.of(2012, 01, 10);
         Transaction debit = new Debit(amount, date);
         Mockito.doNothing().when(account).addTransaction(debit);

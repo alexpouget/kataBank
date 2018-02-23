@@ -6,8 +6,6 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 
-import static org.junit.Assert.*;
-
 public class CreditTest {
 
     private LocalDate date;
@@ -19,22 +17,22 @@ public class CreditTest {
 
     @Test
     public void updateSolde0To0() {
-        Credit credit = new Credit(new Amount(0), date);
-        Amount solde = credit.updateSolde(new Amount(0));
-        Assertions.assertThat(solde).isEqualTo(new Amount(0));
+        Credit credit = new Credit(Amount.parse(0), date);
+        Amount solde = credit.updateSolde(Amount.parse(0));
+        Assertions.assertThat(solde).isEqualTo(Amount.parse(0));
     }
 
     @Test
     public void updateSolde0To1() {
-        Credit credit = new Credit(new Amount(0), date);
-        Amount solde = credit.updateSolde(new Amount(1));
-        Assertions.assertThat(solde).isEqualTo(new Amount(1));
+        Credit credit = new Credit(Amount.parse(0), date);
+        Amount solde = credit.updateSolde(Amount.parse(1));
+        Assertions.assertThat(solde).isEqualTo(Amount.parse(1));
     }
 
     @Test
     public void updateSolde1To1() {
-        Credit credit = new Credit(new Amount(1), date);
-        Amount solde = credit.updateSolde(new Amount(1));
-        Assertions.assertThat(solde).isEqualTo(new Amount(2));
+        Credit credit = new Credit(Amount.parse(1), date);
+        Amount solde = credit.updateSolde(Amount.parse(1));
+        Assertions.assertThat(solde).isEqualTo(Amount.parse(2));
     }
 }
